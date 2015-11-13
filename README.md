@@ -19,4 +19,7 @@ for OS X. Trying to bring the experience of [bspwm](https://github.com/baskervil
 
 ##Hotkeys
 
-There are two 
+There are two "supers" currently in affect:
+
+* mash - "cmd+alt+ctrl"
+* mash_move - "cmd+ctrl"
