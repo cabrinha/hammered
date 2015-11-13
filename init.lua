@@ -136,7 +136,7 @@ end)
 -- l increase width
 -- j increase height
 
-hs.hotkey.bind(mash, "H", function()
+hs.hotkey.bind(mash_move, "Left", function()
         local win = hs.window.focusedWindow()
         if (win == nil) then return end
         local f = win:frame()
@@ -144,7 +144,7 @@ hs.hotkey.bind(mash, "H", function()
         win:setFrame(f)
 end)
 
-hs.hotkey.bind(mash, "L", function()
+hs.hotkey.bind(mash_move, "Right", function()
         local win = hs.window.focusedWindow()
         if (win == nil) then return end
         local f = win:frame()
@@ -152,7 +152,7 @@ hs.hotkey.bind(mash, "L", function()
         win:setFrame(f)
 end)
 
-hs.hotkey.bind(mash, "J", function()
+hs.hotkey.bind(mash_move, "Up", function()
         local win = hs.window.focusedWindow()
         if (win == nil) then return end
         local f = win:frame()
@@ -160,7 +160,7 @@ hs.hotkey.bind(mash, "J", function()
         win:setFrame(f)
 end)
 
-hs.hotkey.bind(mash, "K", function()
+hs.hotkey.bind(mash_move, "Down", function()
         local win = hs.window.focusedWindow()
         if (win == nil) then return end
         local f = win:frame()
