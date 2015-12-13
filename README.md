@@ -14,7 +14,7 @@ for OS X. Trying to bring the experience of [bspwm](https://github.com/baskervil
 
 ##Screenshots
 
-![dtop](http://i.imgur.com/9r5rePs.jpg)
+![dtop](https://u.teknik.io/jfJ59i.png)
 ![porsche](http://i.imgur.com/qQ6m5Tt.jpg)
 
 ##Hotkeys
