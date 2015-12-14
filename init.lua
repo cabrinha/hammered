@@ -1,10 +1,14 @@
 -- Call up the bar
-require("bar")
+--require("bar")
 
 -- Hotkey mash
 local mash = {"cmd", "alt", "ctrl"}
 local mash_move = {"cmd", "ctrl"}
 
+-- Reload config
+hs.hotkey.bind(mash, "R", function()
+  hs.reload()
+end)
 hs.alert("Reloaded Config")
 
 -- instant window resizing
@@ -130,11 +134,9 @@ hs.hotkey.bind(mash, "pad1", function()
     win:setFrame(f)
 end)
 
--- Basic movement
--- k decrease height
--- h decrease width
--- l increase width
--- j increase height
+-- Basic movement: Arrow Keys
+-- Up, Down, Left, Right
+-- Num Pad: 7, 9, 1, 3
 
 hs.hotkey.bind(mash_move, "Left", function()
         local win = hs.window.focusedWindow()
@@ -152,7 +154,7 @@ hs.hotkey.bind(mash_move, "Right", function()
         win:setFrame(f)
 end)
 
-hs.hotkey.bind(mash_move, "Up", function()
+hs.hotkey.bind(mash_move, "Down", function()
         local win = hs.window.focusedWindow()
         if (win == nil) then return end
         local f = win:frame()
@@ -160,7 +162,7 @@ hs.hotkey.bind(mash_move, "Up", function()
         win:setFrame(f)
 end)
 
-hs.hotkey.bind(mash_move, "Down", function()
+hs.hotkey.bind(mash_move, "Up", function()
         local win = hs.window.focusedWindow()
         if (win == nil) then return end
         local f = win:frame()
@@ -169,10 +171,6 @@ hs.hotkey.bind(mash_move, "Down", function()
 end)
 
 -- Basic movement
--- k move up
--- h move left
--- l move right
--- j move down
 
 hs.hotkey.bind(mash_move, "K", function()
       local win = hs.window.focusedWindow()
@@ -221,15 +219,26 @@ hs.hotkey.bind(mash, "pad5", function()
   win:setFrame(f)
 end)
 
+-- Fullscreen
+hs.hotkey.bind(mash, "G", function()
+  local win = hs.window.focusedWindow()
+  if (win == nil) then return end
+  local f = win:frame()
+  local screen = win:screen()
+  local max = screen:frame()
+
+  f.x = max.x + 30
+  f.y = max.y + 40
+  f.w = max.w - 60
+  f.h = max.h - 80
+  win:setFrame(f)
+end)
+
 -- Launch Iterm2
-hs.hotkey.bind(mash, "T", function() os.execute("/Applications/iTerm.app/Contents/MacOS/iTerm2 --new-window &") end)
+--hs.hotkey.bind(mash, "T", function() os.execute("/Applications/iTerm.app/Contents/MacOS/iTerm2 --new-window &") 
+--end)
 
 -- Multi monitor
 -- Move Next / Preivous Screen
 hs.hotkey.bind(mash_move, "N", hs.grid.pushWindowNextScreen)
 hs.hotkey.bind(mash_move, "P", hs.grid.pushWindowPrevScreen)
-
--- Reload config
-hs.hotkey.bind(mash, "R", function()
-  hs.reload()
-end)
