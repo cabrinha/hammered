@@ -1,6 +1,9 @@
 -- Call up the bar
 --require("bar")
 
+-- Window borders
+require("border")
+
 -- Hotkey mash
 local mash = {"cmd", "alt", "ctrl"}
 local mash_move = {"cmd", "ctrl"}
