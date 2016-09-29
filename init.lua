@@ -2,11 +2,12 @@
 --require("bar")
 
 -- Window borders
-require("border")
+-- require("border")
 
 -- Hotkey mash
-local mash = {"cmd", "alt", "ctrl"}
+local mash = {"cmd", "alt"}
 local mash_move = {"cmd", "ctrl"}
+local mashed = {"cmd", "alt", "ctrl"}
 
 -- Reload config
 hs.hotkey.bind(mash, "R", function()
@@ -16,6 +17,32 @@ hs.alert("Reloaded Config")
 
 -- instant window resizing
 hs.window.animationDuration = 0
+
+-- Focus
+-- next window right
+hs.hotkey.bind(mashed, "Right", function()
+    local win = hs.window.focusedWindow()
+    if (win == nil) then return end
+    win:focusWindowEast()
+end)
+-- next window left
+hs.hotkey.bind(mashed, "Left", function()
+    local win = hs.window.focusedWindow()
+    if (win == nil) then return end
+    win:focusWindowWest()
+end)
+-- next window up
+hs.hotkey.bind(mashed, "Up", function()
+    local win = hs.window.focusedWindow()
+    if (win == nil) then return end
+    win:focusWindowNorth()
+end)
+-- next window down
+hs.hotkey.bind(mashed, "Down", function()
+    local win = hs.window.focusedWindow()
+    if (win == nil) then return end
+    win:focusWindowSouth()
+end)
 
 -- Resize window to tile horizontally
 hs.hotkey.bind(mash, "Left", function()
